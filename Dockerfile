@@ -1,4 +1,4 @@
-FROM openjdk:11.0.12-jdk-slim
+FROM openjdk:11.0.13-jdk-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -29,10 +29,10 @@ WORKDIR /opt/android-sdk-linux
 RUN /opt/tools/entrypoint.sh built-in
 
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmdline-tools;latest"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;30.0.2"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "build-tools;30.0.3"
 RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platform-tools"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-30"
-RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;3.6.4111459" "cmake;3.10.2.4988404" "ndk;21.3.6528147"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "platforms;android-31"
+RUN /opt/android-sdk-linux/cmdline-tools/tools/bin/sdkmanager "cmake;3.6.4111459" "cmake;3.10.2.4988404" "ndk;21.3.6528147" "ndk;21.4.7075529" "ndk;21.0.6113669"
 
 RUN apt-get update && apt-get install -y gradle && \
     cd /tmp && \
